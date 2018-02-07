@@ -1,0 +1,22 @@
+.wrapper {
+    width: 1000px;
+    margin: auto;
+    position: relative;
+}
+
+.frame {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    top: 370px;
+    left: 415px;
+}
+
+.frame-colored {
+    border: 2px solid red;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
