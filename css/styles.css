@@ -4,12 +4,28 @@
     position: relative;
 }
 
+.wrapper:hover{
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: grab;
+    cursor : -o-grab;
+    cursor : -moz-grab;
+}
+.wrapper.grabbing {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    cursor : -o-grabbing;
+    cursor : -moz-grabbing;
+}
+
 .frame {
     position: absolute;
-    width: 60px;
-    height: 80px;
-    top: 370px;
-    left: 415px;
+}
+
+.dog {
+    width: 85px;
+    top: 580px;
+    left: 310px;
 }
 
 .frame-colored {

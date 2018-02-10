@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+    $('.freeze').freezeframe();
     var audioElement = document.createElement('audio');
     $(".person").on("click", function (e) {
         e.preventDefault();
@@ -7,6 +8,15 @@ $( document ).ready(function() {
         audioElement.load();
         audioElement.play();
     });
+
+    $(".wrapper").on("mousedown touchstart", function(e) {
+        $(this).addClass('grabbing')
+    })
+
+    $(".wrapper").on("mouseup touchend", function(e) {
+        $(this).removeClass('grabbing')
+    })
+
     window.scrollTo(0, 0);
 
     var maxSize = 5000;
@@ -29,4 +39,5 @@ $( document ).ready(function() {
             changeImageSize(2000);
         }
     });
+
 });

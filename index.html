@@ -9,23 +9,27 @@
     <meta name="author" content="maXer">
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/freezeframe_styles.css">
+    <script type="text/javascript" src="https://cdn.rawgit.com/asvd/dragscroll/master/dragscroll.js"></script>
 </head>
-<body>
+<body class="dragscroll">
 <div class="wrapper">
-    <div class="colage">
+    <div class="collage">
         <img src="pictures/LaGuarimba_web_collage.jpg" alt="Peoples" usemap="#people-map">
         <map name="people-map">
             <area class="person" shape="rect" coords="420,380,480,460" href="LaGuarimba_Zarko_1.mp3" alt="Zarko"
                   title="Zarko">
-            <!--<area shape="circle" coords="90,58,3" href="mercur.htm" alt="Mercury">-->
-            <!--<area shape="circle" coords="124,58,8" href="venus.htm" alt="Venus">-->
+            <area class="person" shape="rect" coords="490,370,550,430" href="Song_Giulio_and_Carlos.mp3" alt="Giulio and Carlos"
+                  title="Giulio and Carlos">
         </map>
+        <div class="frame dog">
+            <img class="freeze" src="pictures/Dog.gif" alt="Dog">
+        </div>
     </div>
 </div>
-<script
-        src="http://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/imagesloaded.pkgd.js"></script>
+<script src="js/freezeframe.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
