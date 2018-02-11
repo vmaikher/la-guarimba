@@ -1,12 +1,21 @@
 $( document ).ready(function() {
     $('.freeze').freezeframe();
+
     var audioElement = document.createElement('audio');
+
     $(".person").on("click", function (e) {
         e.preventDefault();
-        console.log(e.target.getAttribute('href'));
-        audioElement.setAttribute('src', "audio/" + e.target.getAttribute('href'));
-        audioElement.load();
-        audioElement.play();
+
+        var currentTrack = e.target.getAttribute('href');
+        if (audioElement.getAttribute('src') && audioElement.getAttribute('src').replace('audio/', '') == currentTrack) {
+            console.log('here', currentTrack);
+            audioElement.pause();
+        } else {
+            console.log('there', currentTrack);
+                        audioElement.setAttribute('src', 'audio/' + currentTrack);
+            audioElement.load();
+            audioElement.play();
+        }
     });
 
     $(".wrapper").on("mousedown touchstart", function(e) {

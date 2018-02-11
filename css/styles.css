@@ -36,3 +36,11 @@ img {
     height: 100%;
     width: 100%;
 }
+
+area {
+    cursor: url("../pictures/cursor_1_1.png"), default;
+}
+
+.cbalink {
+    padding-top: 500px;
+}
