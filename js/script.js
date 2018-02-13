@@ -1,15 +1,17 @@
 $( document ).ready(function() {
-    $('.freeze').freezeframe();
-
     var audioElement = document.createElement('audio');
 
     $(".person").on("click", function (e) {
         e.preventDefault();
-
         var currentTrack = e.target.getAttribute('href');
         if (audioElement.getAttribute('src') && audioElement.getAttribute('src').replace('audio/', '') == currentTrack) {
             console.log('here', currentTrack);
-            audioElement.pause();
+            if (audioElement.paused) {
+                audioElement.play();
+            } else {
+                audioElement.pause();
+            }
+
         } else {
             console.log('there', currentTrack);
                         audioElement.setAttribute('src', 'audio/' + currentTrack);
@@ -20,22 +22,27 @@ $( document ).ready(function() {
 
     $(".wrapper").on("mousedown touchstart", function(e) {
         $(this).addClass('grabbing')
-    })
+    });
 
     $(".wrapper").on("mouseup touchend", function(e) {
         $(this).removeClass('grabbing')
-    })
+    });
+
+    $(".animation").on("mouseout mouseover touchend", function(e) {
+        $( this ).children(".start").toggle();
+        $( this ).children(".stop").toggle();
+    });
 
     window.scrollTo(0, 0);
 
-    var maxSize = 5000;
-    var minSize = 1000;
+    var collageMaxSize = 5000;
+    var collageMinSize = 1000;
 
     function changeImageSize(size) {
         el = $(".wrapper");
         var newSize = el.width() + size;
 
-        if (newSize >= minSize && newSize <= maxSize) {
+        if (newSize >= collageMinSize && newSize <= collageMaxSize) {
             el.width(newSize);
         }
     }
