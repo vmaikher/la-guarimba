@@ -33,26 +33,69 @@ $( document ).ready(function() {
         $( this ).children(".stop").toggle();
     });
 
-    window.scrollTo(0, 0);
-
     var collageMaxSize = 5000;
-    var collageMinSize = 1000;
+    var collageMinSize = $(".col-img").width();
 
-    function changeImageSize(size) {
+    function increaseImageSize(e) {
+        kof = 1.5;
         el = $(".wrapper");
-        var newSize = el.width() + size;
-
-        if (newSize >= collageMinSize && newSize <= collageMaxSize) {
+        var newSize = el.width()*kof;
+        if (newSize <= collageMaxSize) {
+            var offset = getScrollByOffset(e);
             el.width(newSize);
+            console.log("offset:", offset);
+            window.scrollBy(offset.left*kof, offset.top*kof);
+        } else {
+            console.log("Max scale is reached.");
         }
     }
 
+    function getScrollByOffset(e) {
+        topCenter = $(window).scrollTop() + $(window).height() / 2;
+        leftCenter = $(window).scrollLeft() + $(window).width() / 2;
+        console.log("left ", leftCenter);
+        console.log("top ", topCenter);
+        return {
+            "top": (e.pageY - topCenter),
+            "left": (e.pageX - leftCenter)
+        };
+    }
+
+    function getScrollByOffset2(e) {
+        topCenter = $(window).height() / 2;
+        leftCenter = $(window).width() / 2;
+        console.log("left ", leftCenter);
+        console.log("top ", topCenter);
+        return {
+            "top": (e.screenY - topCenter),
+            "left": (e.screenX - leftCenter)
+        };
+    }
+
+    function decreaseImageSize(e) {
+        el = $(".wrapper");
+        var newSize = el.width()/1.5;
+        scrolltop = 0;
+        scrollLeft = 0;
+        if (newSize >= collageMinSize && newSize <= collageMaxSize) {
+            el.width(newSize);
+            // window.scrollBy();
+            console.log("scrolled: "+scrolltop+", "+scrollLeft);
+        }
+    }
+
+    $(".wrapper").mousemove(function(e){
+        // console.log("mouse location(X,Y):", e.pageX, e.pageY);
+        //console.log("screen pos: ", e.screenX, e.screenY);
+        // centrByMouse2(e);
+    });
+
     window.addEventListener('wheel', function (e) {
         e.preventDefault();
-        if (e.deltaY > 0) {
-            changeImageSize(-2000);
-        } else if (e.deltaY < 0) {
-            changeImageSize(2000);
+        if (e.deltaY < 0) {
+            increaseImageSize(e);
+        } else if (e.deltaY > 0) {
+            decreaseImageSize(e);
         }
     });
 
