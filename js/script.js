@@ -33,6 +33,12 @@ $( document ).ready(function() {
         $( this ).children(".stop").toggle();
     });
 
+    $(".giulio-and-carlos").on("mouseout mouseover touchend", function(e) {
+        console.log(this);
+        $(".song").children(".start").toggle();
+        $(".song").children(".stop").toggle();
+    });
+
     var collageMaxSize = 5000;
     var collageMinSize = $(".col-img").width();
 

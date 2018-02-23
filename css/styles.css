@@ -2,6 +2,8 @@
     width: 1000px;
     margin: auto;
     position: relative;
+    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s;
 }
 
 .wrapper:hover{
@@ -20,13 +22,19 @@
 
 .frame {
     position: absolute;
-    border: 2px solid red;
+   //border: 2px solid red;
 }
 
 .dog {
     width: 9%;
     top: 55.5%;
     left: 31%;
+}
+
+.song {
+    width: 7%;
+    top: 36.97%;
+    left: 48.6%;
 }
 
 img {
@@ -48,14 +56,14 @@ img {
 
 /*Zones description*/
 
-.zarko-1 {
+.zarko-2 {
     width: 5%;
     height: 4%;
     top: 41%;
     left: 42.5%;
 }
 
-.zarko-2 {
+.zarko-1 {
     width: 7%;
     height: 4%;
     top: 41.2%;
