@@ -34,7 +34,6 @@ $( document ).ready(function() {
     });
 
     $(".giulio-and-carlos").on("mouseout mouseover touchend", function(e) {
-        console.log(this);
         $(".song").children(".start").toggle();
         $(".song").children(".stop").toggle();
     });
