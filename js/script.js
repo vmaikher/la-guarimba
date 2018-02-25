@@ -38,6 +38,20 @@ $( document ).ready(function() {
         $(".song").children(".stop").toggle();
     });
 
+    /*Modal window!!! */
+    //----- OPEN
+    $('.help-open').on('click', function(e)  {
+        var targeted_popup_class = 'help';
+        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+        e.preventDefault();
+    });
+    //----- CLOSE
+    $('[data-popup-close], .popup').on('click', function(e)  {
+        var targeted_popup_class = 'help';
+        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+        e.preventDefault();
+    });
+    /* Scaling!!! */
     var collageMaxSize = 5000;
     var collageMinSize = $(".col-img").width();
 
@@ -49,7 +63,7 @@ $( document ).ready(function() {
             var offset = getScrollByOffset(e);
             el.width(newSize);
             console.log("offset:", offset);
-            window.scrollBy(offset.left*kof, offset.top*kof);
+            //window.scrollBy(offset.left*kof, offset.top*kof);
         } else {
             console.log("Max scale is reached.");
         }

@@ -22,6 +22,7 @@
 
 .frame {
     position: absolute;
+    cursor: url("../pictures/cursor_1_1.png"), default;
     /*border: 2px solid red;*/
 }
 
@@ -29,6 +30,13 @@
     width: 9%;
     top: 55.5%;
     left: 31%;
+}
+
+.help-open {
+    width: 4%;
+    height: 4%;
+    top: 9%;
+    left: 21%;
 }
 
 .song {
@@ -44,10 +52,6 @@ img {
 
 .start {
     display: none;
-}
-
-.frame {
-    cursor: url("../pictures/cursor_1_1.png"), default;
 }
 
 .cbalink {

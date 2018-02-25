@@ -10,12 +10,21 @@
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/tooltip.css">
     <script type="text/javascript" src="https://cdn.rawgit.com/asvd/dragscroll/master/dragscroll.js"></script>
 </head>
 <body class="dragscroll">
+<div class="popup" data-popup="help">
+    <div class="popup-inner">
+        <img src="pictures/LaGuarimba-instruction.jpg">
+        <a class="popup-close" data-popup-close="help" href="#">x</a>
+    </div>
+</div>
 <div class="wrapper">
     <div class="collage">
-        <img class="col-img" src="pictures/LaGuarimba_web_collage_1.jpg">
+        <img class="col-img" src="pictures/LaGuarimba_web.jpg">
+        <div class="help-open frame"></div>
         <div class="frame dog animation">
             <img class="stop" src="pictures/static-Dog.jpg" alt="Dog">
             <img class="start" src="pictures/Dog.gif" alt="Dog">
@@ -25,7 +34,10 @@
             <img class="start" src="pictures/Giulio_y_Carlos111.gif" alt="Giulio y Carlos">
         </div>
     </div>
-    <a class="frame person degtiarenko-1" href="LaGuarimba_MariaDegtiarenko_1.mp3" title="Maria Degtiarenko"></a>
+    <div class="frame person degtiarenko-1">
+        <a href="LaGuarimba_MariaDegtiarenko_1.mp3" title="Maria Degtiarenko"></a>
+        <div class="tooltip"><span class="tooltiptext">Maria Degtiarenko</span></div>
+    </div>
     <a class="frame person ronny-1" href="LaGuarimba_Ronny_1.mp3" title="Ronny"></a>
     <a class="frame person diana-1" href="LaGuarimba_Diana_1.mp3" title="Diana"></a>
     <a class="frame person diana-2" href="LaGuarimba_Diana_2.mp3" title="Diana"></a>
