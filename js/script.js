@@ -54,49 +54,24 @@ $( document ).ready(function() {
     /* Scaling!!! */
     var collageMaxSize = 5000;
     var collageMinSize = $(".col-img").width();
-
+    var scaleCoef = 1.5;
     function increaseImageSize(e) {
-        kof = 1.5;
-        el = $(".wrapper");
-        var newSize = el.width()*kof;
+        var wrapper = $(".wrapper");
+        var newSize = wrapper.width()*scaleCoef;
         if (newSize <= collageMaxSize) {
-            var offset = getScrollByOffset(e);
-            el.width(newSize);
-            console.log("offset:", offset);
-            window.scrollBy(offset.left*kof, offset.top*kof);
+            wrapper.width(newSize);
         } else {
             console.log("Max scale is reached.");
         }
     }
 
-    function getScrollByOffset(e) {
-        topCenter = ($(window).scrollTop() + $(window).height()) / 2;
-        leftCenter = ($(window).scrollLeft() + $(window).width()) / 2;
-        console.log("left ", leftCenter);
-        console.log("top ", topCenter);
-        return {
-            "top": (e.pageY - topCenter),
-            "left": (e.pageX - leftCenter)
-        };
-    }
-
     function decreaseImageSize(e) {
-        kof = 1.5;
-        el = $(".wrapper");
-        var newSize = el.width()/1.5;
+        var wrapper = $(".wrapper");
+        var newSize = wrapper.width()/1.5;
         if (newSize >= collageMinSize && newSize <= collageMaxSize) {
-            var offset = getScrollByOffset(e);
-            el.width(newSize);
-            console.log("offset:", offset);
-            window.scrollBy(-offset.left/kof, -offset.top/kof);
+            wrapper.width(newSize);
         }
     }
-
-    $(".wrapper").mousemove(function(e){
-        // console.log("mouse location(X,Y):", e.pageX, e.pageY);
-        //console.log("screen pos: ", e.screenX, e.screenY);
-        // centrByMouse2(e);
-    });
 
     window.addEventListener('wheel', function (e) {
         e.preventDefault();
