@@ -2,19 +2,15 @@ $( document ).ready(function() {
     var audioElement = document.createElement('audio');
 
     $(".person").on("click", function (e) {
-        e.preventDefault();
-        var currentTrack = e.target.getAttribute('href');
-        if (audioElement.getAttribute('src') && audioElement.getAttribute('src').replace('audio/', '') == currentTrack) {
-            console.log('here', currentTrack);
+        var currentTrack = e.target.parentNode.getAttribute('data-audio');
+        if (audioElement.getAttribute('src') && audioElement.getAttribute('src').replace('audio/', '') === currentTrack) {
             if (audioElement.paused) {
                 audioElement.play();
             } else {
                 audioElement.pause();
             }
-
         } else {
-            console.log('there', currentTrack);
-                        audioElement.setAttribute('src', 'audio/' + currentTrack);
+            audioElement.setAttribute('src', 'audio/' + currentTrack);
             audioElement.load();
             audioElement.play();
         }
