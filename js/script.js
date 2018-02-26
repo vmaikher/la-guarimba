@@ -63,15 +63,15 @@ $( document ).ready(function() {
             var offset = getScrollByOffset(e);
             el.width(newSize);
             console.log("offset:", offset);
-            //window.scrollBy(offset.left*kof, offset.top*kof);
+            window.scrollBy(offset.left*kof, offset.top*kof);
         } else {
             console.log("Max scale is reached.");
         }
     }
 
     function getScrollByOffset(e) {
-        topCenter = $(window).scrollTop() + $(window).height() / 2;
-        leftCenter = $(window).scrollLeft() + $(window).width() / 2;
+        topCenter = ($(window).scrollTop() + $(window).height()) / 2;
+        leftCenter = ($(window).scrollLeft() + $(window).width()) / 2;
         console.log("left ", leftCenter);
         console.log("top ", topCenter);
         return {
@@ -80,26 +80,15 @@ $( document ).ready(function() {
         };
     }
 
-    function getScrollByOffset2(e) {
-        topCenter = $(window).height() / 2;
-        leftCenter = $(window).width() / 2;
-        console.log("left ", leftCenter);
-        console.log("top ", topCenter);
-        return {
-            "top": (e.screenY - topCenter),
-            "left": (e.screenX - leftCenter)
-        };
-    }
-
     function decreaseImageSize(e) {
+        kof = 1.5;
         el = $(".wrapper");
         var newSize = el.width()/1.5;
-        scrolltop = 0;
-        scrollLeft = 0;
         if (newSize >= collageMinSize && newSize <= collageMaxSize) {
+            var offset = getScrollByOffset(e);
             el.width(newSize);
-            // window.scrollBy();
-            console.log("scrolled: "+scrolltop+", "+scrollLeft);
+            console.log("offset:", offset);
+            window.scrollBy(-offset.left/kof, -offset.top/kof);
         }
     }
 
