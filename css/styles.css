@@ -22,8 +22,11 @@
 
 .frame {
     position: absolute;
-    cursor: url("../pictures/cursor_1_1.png"), default;
     /*border: 2px solid red;*/
+}
+
+.person {
+    cursor: url("../pictures/cursor_1_1.png"), default;
 }
 
 .dog {
